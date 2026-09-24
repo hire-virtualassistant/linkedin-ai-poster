@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI LinkedIn Auto Poster</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="logo"><span class="badge">in</span> AI Auto Poster</div>
+  <a href="/" class="active">Home</a>
+  <a href="/settings">Settings</a>
+  <div class="spacer"></div>
+  <span id="conn" class="pill grey"><span class="status-dot"></span> Checking...</span>
+</nav>
+
+<div class="wrap">
+
+  <!-- STEP 1: Best time -->
+  <div class="card">
+    <div class="spread">
+      <div>
+        <h2>⏰ Best Posting Time</h2>
+        <p class="sub">Country select karein aur best time generate karein (traffic & engagement ke hisaab se).</p>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label>Country</label>
+        <select id="country"></select>
+      </div>
+      <div style="flex:0 0 auto;display:flex;align-items:flex-end">
+        <button class="btn" id="btnTime">Generate Best Time</button>
+      </div>
+    </div>
+    <div id="timeBox" class="timebox" style="display:none">
+      <div class="big" id="timeBig">--</div>
+      <div class="muted" id="timePkt"></div>
+      <div class="muted" id="timeReason" style="margin-top:6px"></div>
+      <div class="tag-list" id="timeTags"></div>
+      <div class="muted" style="margin-top:14px;font-weight:600">Poore hafte ke slots — jo waqt chahein choose karein:</div>
+      <div id="weekSlots" style="margin-top:8px;display:flex;flex-direction:column;gap:6px"></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- STEP 2: Input -->
+    <div class="card">
+      <h2>📝 Content Input</h2>
+      <p class="sub">Keywords do (aur agar content/description ho to wo bhi). AI analyze kar ke best post banayega.</p>
+      <label>Keywords (comma separated) *</label>
+      <input id="keywords" placeholder="digital marketing, SEO, content strategy">
+      <label>Description / Existing Content (optional)</label>
+      <textarea id="description" placeholder="Agar koi content ya description hai to yahan paste karein — AI ise analyze karega..."></textarea>
+      <div style="margin-top:16px" class="row">
+        <button class="btn" id="btnGen">✨ Generate Best Post</button>
+      </div>
+      <div class="hint">Gemini API key Settings me save honi chahiye.</div>
+    </div>
+
+    <!-- STEP 3: Output -->
+    <div class="card">
+      <h2>🚀 Generated Post</h2>
+      <p class="sub">Yahan edit bhi kar sakte hain, phir submit karein.</p>
+      <label>Post Content</label>
+      <textarea id="outContent" placeholder="Post content yahan aayega (title/headline hook is ke andar hi shamil hai)"></textarea>
+      <div id="kwBox"></div>
+      <div class="row" style="margin-top:16px">
+        <button class="btn green" id="btnSubmit">✅ Submit Post</button>
+      </div>
+      <div class="hint">Submit karte hi post upar wale "Best Posting Time" ke mutabiq LinkedIn ke schedule me chali jayegi — turant publish nahi hogi.</div>
+    </div>
+  </div>
+
+  <!-- History -->
+  <div class="card">
+    <div class="spread">
+      <h2>📜 Posts & Schedule</h2>
+      <button class="btn ghost" id="btnRefresh">Refresh</button>
+    </div>
+    <div id="posts"></div>
+  </div>
+
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>

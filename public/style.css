@@ -1,0 +1,56 @@
+:root{
+  --bg:#0b1020; --card:#141b33; --card2:#1b2445; --line:#27314f;
+  --text:#e8ecf7; --muted:#94a0c0; --brand:#0a66c2; --brand2:#3b82f6;
+  --green:#22c55e; --red:#ef4444; --yellow:#eab308; --radius:16px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',system-ui,Arial,sans-serif;background:radial-gradient(1200px 600px at 80% -10%,#182552 0%,var(--bg) 55%);color:var(--text);min-height:100vh}
+a{color:var(--brand2);text-decoration:none}
+.nav{display:flex;align-items:center;gap:18px;padding:16px 28px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(11,16,32,.85);backdrop-filter:blur(8px);z-index:10}
+.nav .logo{font-weight:800;font-size:20px;display:flex;align-items:center;gap:10px}
+.nav .logo .badge{background:var(--brand);color:#fff;border-radius:8px;padding:4px 8px;font-size:13px}
+.nav a{padding:8px 14px;border-radius:10px;color:var(--muted);font-weight:600}
+.nav a.active,.nav a:hover{background:var(--card2);color:#fff}
+.nav .spacer{flex:1}
+.status-dot{width:10px;height:10px;border-radius:50%;background:var(--red);display:inline-block;margin-right:6px}
+.status-dot.on{background:var(--green)}
+.wrap{max-width:1080px;margin:0 auto;padding:28px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,var(--card) 0%,var(--card2) 100%);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:22px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.card h2{margin:0 0 4px;font-size:18px}
+.card p.sub{margin:0 0 16px;color:var(--muted);font-size:13px}
+label{display:block;font-size:13px;color:var(--muted);margin:12px 0 6px;font-weight:600}
+input,textarea,select{width:100%;background:#0d1428;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:12px 14px;font-size:14px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--brand2)}
+textarea{min-height:120px;resize:vertical}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-size:14px;font-weight:700;cursor:pointer;transition:.15s}
+.btn:hover{filter:brightness(1.1)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.secondary{background:var(--card2);border:1px solid var(--line)}
+.btn.green{background:var(--green)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>*{flex:1}
+.pill{display:inline-block;background:#0d1428;border:1px solid var(--line);color:var(--brand2);border-radius:999px;padding:5px 12px;font-size:12px;margin:4px 4px 0 0}
+.pill.green{color:var(--green)}
+.pill.grey{color:var(--muted)}
+.hint{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+.toast{position:fixed;right:20px;bottom:20px;background:#0d1428;border:1px solid var(--line);border-left:4px solid var(--green);padding:14px 18px;border-radius:12px;max-width:360px;box-shadow:0 10px 30px rgba(0,0,0,.4);opacity:0;transform:translateY(10px);transition:.25s;z-index:50}
+.toast.show{opacity:1;transform:none}
+.toast.err{border-left-color:var(--red)}
+.timebox{background:#0d1428;border:1px dashed var(--brand2);border-radius:14px;padding:18px;text-align:center;margin-top:14px}
+.timebox .big{font-size:26px;font-weight:800;color:#fff}
+.timebox .muted{color:var(--muted);font-size:13px;margin-top:4px}
+.post-item{background:#0d1428;border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.post-item .t{font-weight:700}
+.post-item .m{color:var(--muted);font-size:12px;margin-top:4px}
+.st{font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;text-transform:uppercase}
+.st.scheduled{background:rgba(234,179,8,.15);color:var(--yellow)}
+.st.posted{background:rgba(34,197,94,.15);color:var(--green)}
+.st.failed{background:rgba(239,68,68,.15);color:var(--red)}
+.st.draft{background:var(--card2);color:var(--muted)}
+.loader{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spread{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tag-list{margin-top:8px}

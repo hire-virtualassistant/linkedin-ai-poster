@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings - AI LinkedIn Auto Poster</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="logo"><span class="badge">in</span> AI Auto Poster</div>
+  <a href="/">Home</a>
+  <a href="/settings" class="active">Settings</a>
+  <div class="spacer"></div>
+  <span id="conn" class="pill grey"><span class="status-dot"></span> Checking...</span>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+    <h2>🔑 Gemini API</h2>
+    <p class="sub">Google AI Studio se free API key le kar yahan save karein. Save karte hi UI se auto-connect ho jayegi.</p>
+    <label>Gemini API Key</label>
+    <input id="geminiKey" type="password" placeholder="AIza...">
+    <div class="hint" id="geminiState"></div>
+    <label>Gemini Model</label>
+    <select id="geminiModel">
+      <option value="gemini-3.5-flash-lite">gemini-3.5-flash-lite (recommended, free tier)</option>
+      <option value="gemini-3.6-flash">gemini-3.6-flash</option>
+      <option value="gemini-3.7-flash">gemini-3.7-flash</option>
+      <option value="gemini-3.8-flash">gemini-3.8-flash</option>
+    </select>
+    <div style="margin-top:16px">
+      <button class="btn" id="btnSaveGemini">Save Gemini Settings</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💼 LinkedIn Profile</h2>
+    <p class="sub">LinkedIn access token save karein. Save ke baad "Test & Connect" dabayein — profile auto-connect ho jayegi aur post auto submit hoga.</p>
+    <label>LinkedIn Access Token (scope: w_member_social, openid, profile)</label>
+    <input id="liToken" type="password" placeholder="AQV...">
+    <div class="hint" id="liState"></div>
+    <label>Author URN (optional — auto detect ho jata hai)</label>
+    <input id="liUrn" placeholder="urn:li:person:XXXX">
+    <label>Default Country (timer ke liye)</label>
+    <select id="defCountry"></select>
+    <div style="margin-top:16px" class="row">
+      <button class="btn" id="btnSaveLi">Save LinkedIn Settings</button>
+      <button class="btn secondary" id="btnTestLi">Test & Connect</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>ℹ️ LinkedIn Token kaise banayein?</h2>
+    <p class="sub" style="line-height:1.7">
+      1. <a href="https://www.linkedin.com/developers/apps" target="_blank">LinkedIn Developers</a> par app banayein.<br>
+      2. Products me <b>"Share on LinkedIn"</b> aur <b>"Sign In with LinkedIn using OpenID Connect"</b> add karein.<br>
+      3. OAuth scopes: <b>openid, profile, w_member_social</b>.<br>
+      4. OAuth token generator se access token generate kar ke yahan paste karein.<br>
+      5. Save + "Test & Connect" dabayein.
+    </p>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>
