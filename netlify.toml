@@ -1,0 +1,13 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+
+# Scheduled function: har 1 minute me scheduled posts check karke
+# jinka waqt aa chuka hai unhe LinkedIn par auto-publish karta hai.
+[functions."scheduler-publish"]
+  schedule = "* * * * *"

@@ -1,0 +1,9 @@
+{
+  "name": "linkedin-ai-poster-netlify",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI LinkedIn Auto Poster - Netlify Functions + Netlify Blobs version",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
